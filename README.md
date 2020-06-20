@@ -1,9 +1,8 @@
 # ActCV - python interface
 
-
 This is a library for connecting the ACT-R visicon with user data.
 
-The cognitive architecture ACT-R is able to monitor a human operator’s interactions with a system using the concept of model-tracing, a concept previously implemented within an ACT-R tutoring system [1]. This software library translated and adapted the work of [2] to establish such a connection between the programming language python and ACT-R version 7.12
+The cognitive architecture ACT-R is able to monitor a human operator’s interactions with a system using the concept of model-tracing, a concept previously implemented within an ACT-R tutoring system [1]. This software library translated and adapted the work of [2] to establish such a connection between the programming language python and ACT-R version 7.12.
 
 [1] <cite> Fu, W.-T., Bothell, D., Douglass, S., Haimson, C., Sohn, M.-H., & Anderson, J. (2006). Toward a real-time model-based training system. Interacting with Computers, 18(6), 1215–1241. </cite> 
 
