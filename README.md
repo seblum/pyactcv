@@ -1,4 +1,4 @@
-# ActR - CV interface
+# ActCV - python interface
 
 
 This is a library for connecting the ACT-R visicon with user data.
