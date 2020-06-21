@@ -20,7 +20,7 @@ pip install git+https://github.com/seblum/actcv
 
 ## Quick-Start
 
-Take a look at the [examples](examples) folder for different renderings.
+Take a look at the [examples](examples) folder for an exemplary use case.
 
 ```python
 
