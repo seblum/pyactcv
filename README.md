@@ -40,7 +40,7 @@ starttime = 0
 indexinput = 0
 timebreak = 0.1
 
-cv.setCVsettings()
+cv.init_actcv()
 cv.schedule_Visicon(data, header, 'alarmactivecolumn', 'alarmnumbercolumn', 'timecolumn', 
 					frequency, duration, starttime, indexinput, timebreak)
 
