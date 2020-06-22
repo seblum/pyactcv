@@ -108,7 +108,7 @@ def schedule_Visicon(data, head, alarmactivecolumn, alarmnumbercolumn, timecolum
     print("-"*30 + " Scheduling successful ")         
 
 
-def setCVsettings():    
+def init_actcv():    
     global index
     global time_offset
     
