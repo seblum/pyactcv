@@ -9,7 +9,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="actr-cv", # Replace with your own username
-    version="0.0.1",
+    version="0.0.2",
     author="Sebastian Blum",
     author_email="sebast.blum@gmail.com",
     description="Combine the Cognitive Architecture ACT-R with user data",
