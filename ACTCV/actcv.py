@@ -87,7 +87,7 @@ class ActCV():
                 current_value = state_current[alarmnumbercolumn]
                 alarm_active = state_current[alarmactivecolumn]
                 
-                self.statelist.append(state_current.values.tolist())
+                self.statelist.append(state_current.values.tolist()) # does it make sense to create a dictionary here?
                 actr.schedule_event(self.time_offset, "commit-to-visicon", params = [self.index, self.statelist], maintenance = True )     
                 self.index += 1
 
