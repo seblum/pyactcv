@@ -89,30 +89,3 @@ class ActCV():
 
         print(" Scheduling successful ")         
 
-'''
-I probably do not need this anymore
-def init_actcv():    
-    global index
-    global time_offset
-    
-    index = 0
-    time_offset = 0
-    statelist.clear()
-    actr.add_command("current-to-visicon", current_to_visicon, "connection to put the current line in the visicon")
-    actr.add_command("initialize-visicon", initialize_visicon, "connection to run initialize the visicon")
-'''
-'''
-
-    def getstatelist(self):
-        return self.statelist
-
-    def getindex(self):
-        return self.index
-
-    def gettimeoffset(self):
-        return self.time_offset
-
-'''
-
-    
-
