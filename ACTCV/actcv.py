@@ -75,7 +75,8 @@ class ActCV():
                 previous_value = state_previous[alarmnumbercolumn]
                 current_value = state_current[alarmnumbercolumn]
                 alarm_active = state_current[alarmactivecolumn]
-                
+                # use tuples and save time offset, index and self statelist. 
+		# Then convert it to list and call the function for each entry
                 self.statelist.append(state_current.values.tolist()) # does it make sense to create a dictionary here?
                 actr.schedule_event(self.time_offset, "commit-to-visicon", params = [self.index, self.statelist], maintenance = True )     
                 self.index += 1
