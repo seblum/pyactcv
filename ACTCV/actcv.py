@@ -11,9 +11,9 @@ from tqdm.auto import tqdm
 class ActCV():
 
     def __init__(self, data, head, indexinput = 0):
-        self.header =  list()
-        self.statelist = list()
-        self.state_start = list()
+        self.header =  []
+        self.statelist = []
+        self.state_start = []
         self.time_offset = 0
         self.header = head
         self.index = indexinput
@@ -53,6 +53,11 @@ class ActCV():
                                        'width', 50, 
                                        'height', 15])
 
+		
+    def set_states(timecolumnname):
+	time_start = self.data[timecolumnname][0]
+        time_last_current = time_start
+    
     # readin with header
     '''
         fucking slow in class
@@ -61,8 +66,7 @@ class ActCV():
         print(" Start scheduling ")         
         
         # set start time    
-        time_start = self.data[timecolumnname][0]
-        time_last_current = time_start
+
 
         # set states
         self.state_start = self.data.iloc[0] # the iloc seems critical
