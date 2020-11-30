@@ -24,21 +24,6 @@ class ActCV():
         actr.add_command("commit-to-visicon", self.commit_to_visicon, "load the current line in the visicon")
        # actr.add_command("initialize-visicon", initialize_visicon, "run initialize the visicon")
 
-    ''' DELETE '''
-    def initialize_visicon(self):
-        #for index, test_case in enumerate(test_cases):
-        #    print index, test_case.ident
-        for headiter in self.header:
-             head_name = headiter
-             value = (self.state_start[headiter])
-             actr.add_visicon_features(['isa', 'visual-location', 
-                                        'value', value,
-                                        'color', head_name,
-                                        'screen-x', 0, 
-                                        'screen-y', 0, 
-                                        'width', 50, 
-                                        'height', 15])        
-
 
     def commit_to_visicon(self, indices, statelist):
         state_current = statelist[indices]
