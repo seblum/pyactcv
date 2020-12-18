@@ -62,23 +62,24 @@ class ActCV():
 
         actr.schedule_event(starttime, "commit-to-visicon", params = [0, self.statelist], maintenance = True )     
 
-        for state_iter in tqdm(self.data.index):
+        for itertuple in data.itertuple():
+
+        #for state_iter in self.data.index):
             #print(state_iter)
-            time_current = self.data[timecolumnname][state_iter]
-            self.time_offset = time_current - time_start
+            time_current = itertuple.timecolumnname # das geht wahrscheinlich nicht, weil es ein string ist
+            self.time_offset = time_current - starttime
             self.time_offset = self.time_offset + starttime
             time_difference = time_current - time_last_current
 
             if time_difference > timebreak:          
                 time_last_current = time_current
-                state_current = self.data.iloc[state_iter]
+                state_current = itertuple
                 previous_value = state_previous[alarmnumbercolumn]
                 current_value = state_current[alarmnumbercolumn]
                 alarm_active = state_current[alarmactivecolumn]
                 # use tuples and save time offset, index and self statelist. 
 		# Then convert it to list and call the function for each entry
                 self.statelist.append(state_current.values.tolist()) # does it make sense to create a dictionary here?
-                actr.schedule_event(self.time_offset, "commit-to-visicon", params = [self.index, self.statelist], maintenance = True )     
                 self.index += 1
 
                 ### ----- ----- ----- PROCEDURE ALERT ----- ----- -----
@@ -89,4 +90,9 @@ class ActCV():
                 state_previous = state_current               
 
         print(" Scheduling successful ")         
+
+    def load_vision():
+        # loop through list
+        # actr.schedule_event(self.time_offset, "commit-to-visicon", params = [self.index, self.statelist], maintenance = True )     
+        pass
 
