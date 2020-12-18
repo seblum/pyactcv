@@ -24,7 +24,6 @@ class ActCV():
         actr.add_command("commit-to-visicon", self.commit_to_visicon, "load the current line in the visicon")
        # actr.add_command("initialize-visicon", initialize_visicon, "run initialize the visicon")
 
-
     def commit_to_visicon(self, indices, statelist):
         state_current = statelist[indices]
         actr.delete_all_visicon_features()        
@@ -40,31 +39,16 @@ class ActCV():
 
 		
     def set_states(timecolumnname):
-	time_start = self.data[timecolumnname][0]
+        # set start time
+	    time_start = self.data[timecolumnname][0]
         time_last_current = time_start
-    
-    # readin with header
-    '''
-        fucking slow in class
-    '''
-    def schedule_Visicon(self, alarmactivecolumn, alarmnumbercolumn, timecolumnname, freq, duration, starttime = 0, timebreak = 0.01):            
-        print(" Start scheduling ")         
-        
-        # set start time    
-
 
         # set states
         self.state_start = self.data.iloc[0] # the iloc seems critical
         state_previous = self.state_start
         self.statelist.append(state_previous.values.tolist())
-        self.index += 1
-        #actr.schedule_event(starttime, "initialize-visicon", maintenance = True )     
-
-        actr.schedule_event(starttime, "commit-to-visicon", params = [0, self.statelist], maintenance = True )     
 
         for itertuple in data.itertuple():
-
-        #for state_iter in self.data.index):
             #print(state_iter)
             time_current = itertuple.timecolumnname # das geht wahrscheinlich nicht, weil es ein string ist
             self.time_offset = time_current - starttime
@@ -78,21 +62,21 @@ class ActCV():
                 current_value = state_current[alarmnumbercolumn]
                 alarm_active = state_current[alarmactivecolumn]
                 # use tuples and save time offset, index and self statelist. 
-		# Then convert it to list and call the function for each entry
+        		# Then convert it to list and call the function for each entry
                 self.statelist.append(state_current.values.tolist()) # does it make sense to create a dictionary here?
                 self.index += 1
-
-                ### ----- ----- ----- PROCEDURE ALERT ----- ----- -----
                 if previous_value != current_value and previous_value == 0.0 and alarm_active == 1.0:
-                    actr.new_tone_sound(freq, duration, self.time_offset) # input these variables
-                    print(f" Tone scheduled at {self.time_offset}")     
-                    
-                state_previous = state_current               
+                    #inser into tone list
+            state_previous = state_current
 
-        print(" Scheduling successful ")         
+
+    def schedule_Visicon(self, alarmactivecolumn, alarmnumbercolumn, timecolumnname, freq, duration, starttime = 0, timebreak = 0.01):            
+        pass
 
     def load_vision():
         # loop through list
         # actr.schedule_event(self.time_offset, "commit-to-visicon", params = [self.index, self.statelist], maintenance = True )     
+        # loop through list
+        # actr.new_tone_sound(freq, duration, self.time_offset) # input these variables
+        # print(f" Tone scheduled at {self.time_offset}")     
         pass
-
