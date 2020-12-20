@@ -4,7 +4,7 @@ import pytest
 from collections import namedtuple
 from collections import OrderedDict
 
-import actcv
+import pyactcv as cv
 
 class TestActCV(object):
 
@@ -22,6 +22,6 @@ class TestActCV(object):
                                         ('Alina', 3), 
                                         ('Max', 4), 
                                         ('Peter', 5)])
-        observed_output =  actcv.ActCV.tuple_to_dict(self, input_tuple)
+        observed_output =  cv.ActCV.tuple_to_dict(self, input_tuple)
 
         assert observed_output == expected_output
