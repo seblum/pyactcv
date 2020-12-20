@@ -1,2 +1,6 @@
 
 .DS_Store
+.pytest_cache
+.eggs
+
+actr_cv.egg-info
