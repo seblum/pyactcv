@@ -1,6 +1,10 @@
 language: python
 python:
   - "3.6"
+env:
+  global:
+    # yaml build with a lot of warnings, which clutter the output
+    - PYTHONWARNINGS=ignore::yaml.YAMLLoadWarning
 #install:
 #  - pip install -e .
 #  - pip install pytest
