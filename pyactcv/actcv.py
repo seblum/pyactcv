@@ -4,7 +4,7 @@ Created on Wed Aug 28 10:22:41 2019
 
 @author: Sebastian Blum
 """
-import actr
+from actr import *
 import numpy as np
 #from tqdm.auto import tqdm
 import time
