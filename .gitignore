@@ -1,7 +1,9 @@
+__pycache__/
+*.py[cod]
 
 .DS_Store
 .pytest_cache
 .eggs
 
 actr_cv.egg-info
-tests/__pycache__/test_actcv.cpython-36-pytest-5.4.1.pyc
+
