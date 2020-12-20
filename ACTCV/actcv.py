@@ -12,7 +12,7 @@ import time
 
 
 
-class ActCV():
+class ActCV:
 
     def __init__(self, data, head, indexinput = 0, timebreak = 0.01):
         self.header =  []
@@ -20,7 +20,7 @@ class ActCV():
         self.header = head
         self.index = indexinput
         self.timebreak = timebreak
-        self.statedict = {}
+        self.offsetdict, self.statedict, self.tonelist = {}, {}, []
         try:
 	        self.data = self.convert_data_frame(data)
         except:
@@ -33,10 +33,13 @@ class ActCV():
         df = dataframe.replace(np.nan, 0, regex=True)
         return df
 
+
+
     def tuple_to_dict(self, namedtuple):
         tupleasdict = namedtuple._asdict()
         del tupleasdict["Index"]
         return tupleasdict
+
 
 
     def commit_to_visicon(self, index):
@@ -53,8 +56,8 @@ class ActCV():
                                        'height', 15])
 
 
+
     def set_states(self, timecolumnname):
-        t0 = time.time()
         # this needs to be dynamically adjustable later on
         timecolumnname_index = 1
         alarmnumbercolumn = 1
@@ -88,28 +91,32 @@ class ActCV():
                 offsetdict[index] = time_offset
                 index += 1
                 if previous_alarmstate != current_alarmstate and previous_alarmstate == 0.0:
-                    tonelist.append(self.time_offset)
+                    tonelist.append(time_offset)
                 previous_alarmstate = current_alarmstate
-        print(f"set states took: { round(time.time()-t0, 5) } seconds")
         return offsetdict, statedict, tonelist
 
 
-    def schedule_Visicon(self, timecolumnname):
+
+    def schedule_States(self, timecolumnname):
         t0 = time.time()
-        offsetdict, statedict, _ = self.set_states(timecolumnname)
-        self.statedict = statedict
-        for key, value in statedict.items():    # kann ich schneller machen, da ich value nicht brauche      
-            timepoint = offsetdict.get(key)
-            actr.schedule_event(timepoint, "commit-to-visicon", params = [key], maintenance = True )
-        self.tuple_to_dict(self.statedict[0])
+        self.offsetdict, self.statedict, self.tonelist = self.set_states(timecolumnname)
+        print(f"schedule states  took: { round(time.time()-t0, 5) } seconds")
+
+
+
+    def schedule_Visicon(self):
+        t0 = time.time()
+        for key in self.offsetdict:  
+            timepoint = key
+            actr.schedule_event(timepoint, "commit-to-visicon", params = [key], maintenance = True ) # this impedes runtime
         print(f"schedule visicon took: { round(time.time()-t0, 5) } seconds")
 
 
 
-    def schedule_Tone(self, alarmactivecolumn, alarmnumbercolumn, timecolumnname, freq, duration, starttime = 0, timebreak = 0.01):            
-        #offset_list, statelist = set_states()
-        pass
-        # loop through list
-        # actr.new_tone_sound(freq, duration, self.time_offset) # input these variables
-        # print(f" Tone scheduled at {self.time_offset}")     
+    def schedule_Tone(self, freq, duration):            
+        t0 = time.time()
+        for key in self.tonelist:
+            actr.new_tone_sound(freq, duration, key) # this impedes runtime
+            #print(key)
+        print(f"schedule tone    took: { round(time.time()-t0, 5) } seconds")
 
