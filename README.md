@@ -1,5 +1,7 @@
 # ActCV - python interface
 
+[![Build Status](https://travis-ci.org/seblum/ActCV.svg?branch=master)](https://travis-ci.org/seblum/ActCV)
+
 This is a library for connecting the ACT-R visicon with user data.
 
 The cognitive architecture ACT-R is able to monitor a human operator’s interactions with a system using the concept of model-tracing, a concept previously implemented within an ACT-R tutoring system [1]. This software library translated and adapted the work of [2] to establish such a connection between the programming language python and ACT-R version 7.12.
