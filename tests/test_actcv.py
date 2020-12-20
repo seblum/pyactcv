@@ -4,7 +4,7 @@ import pytest
 from collections import namedtuple
 from collections import OrderedDict
 
-from actcv import actcv
+import actcv
 
 class TestActCV(object):
 
