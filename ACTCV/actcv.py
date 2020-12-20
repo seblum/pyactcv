@@ -5,9 +5,8 @@ Created on Wed Aug 28 10:22:41 2019
 @author: Sebastian Blum
 """
 import actr
-import pandas as pd
 import numpy as np
-from tqdm.auto import tqdm
+#from tqdm.auto import tqdm
 import time
 
 

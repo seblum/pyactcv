@@ -5,6 +5,8 @@ python:
 #  global:
     # yaml build with a lot of warnings, which clutter the output
 #    - PYTHONWARNINGS=ignore::yaml.YAMLLoadWarning
+before_install:
+  - python setup.py install
 install:
   - pip install -e .
   - pip install pytest
