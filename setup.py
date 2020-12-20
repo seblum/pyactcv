@@ -21,7 +21,7 @@ tests_require = [
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-setuptools.setup(
+setup(
     name="actr-cv", # Replace with your own username
     version="0.0.2",
     author="Sebastian Blum",
