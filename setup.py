@@ -30,7 +30,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/seblum/actcv",
-    packages=setuptools.find_packages(),
+    packages=find_packages(),
     install_requires=install_requires,
     setup_requires=setup_requires,
     tests_require=tests_require,
