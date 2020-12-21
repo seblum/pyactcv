@@ -3,13 +3,19 @@
 [![Build Status](https://travis-ci.org/seblum/ActCV.svg?branch=master)](https://travis-ci.org/seblum/ActCV)
 [![Coverage Status](https://coveralls.io/repos/github/seblum/ActCV/badge.svg?branch=master)](https://coveralls.io/github/seblum/ActCV?branch=master)
 
-This is a library for connecting the ACT-R visicon with user data.
+This library connects the cognitive architecture ACT-R with the programming language python to load user data into ACT-R's visicon.
 
-The cognitive architecture ACT-R is able to monitor a human operator’s interactions with a system using the concept of model-tracing, a concept previously implemented within an ACT-R tutoring system [1]. This software library translated and adapted the work of [2] to establish such a connection between the programming language python and ACT-R version 7.12.
+The cognitive architecture ACT-R is able to monitor a human operator’s interactions with a system using the concept of model-tracing, a concept previously implemented within an ACT-R tutoring system [1]. This software library adapted the work of [2] to establish such a connection between the programming language python and ACT-R version 7.12.
+
+For exemplary usage of the library please see [3] and [4].
 
 [1] <cite> Fu, W.-T., Bothell, D., Douglass, S., Haimson, C., Sohn, M.-H., & Anderson, J. (2006). Toward a real-time model-based training system. Interacting with Computers, 18(6), 1215–1241. </cite> 
 
 [2] <cite> Halbruegge, M. (2013). Act-cv - bridging the gap between cognitive models and the outer world. In E. Brandenburg (Ed.), Grundlagen und Anwendungen der Mensch- Maschine- Interaktion: 10. Berliner Werkstatt Mensch- Maschine-Systeme (pp. 205–210). Berlin: TU Berlin. </cite> 
+
+[3] <cite> Klaproth, O. W., Halbruegge, M., Krol, L. R., Vernaleken, C., Zander, T. O. and Russwinkel, N. (2020). A Neuroadaptive Cognitive Model for Dealing With Uncertainty in Tracing Pilots’ Cognitive State. Topics in Cognitive Science, 12(3), p. 1012-1029. </cite> 
+
+[4] <cite> in review </cite>
 
 ![Exemplary Visicon](visicon.png)
 
@@ -18,6 +24,10 @@ The cognitive architecture ACT-R is able to monitor a human operator’s interac
 
 ```bash
 pip install git+https://github.com/seblum/actcv
+```
+or
+```bash
+pip install pyactcv
 ```
 
 
@@ -30,7 +40,7 @@ Take a look at the [examples](examples) folder for an exemplary use case.
 import pandas as pd
 
 import actr
-import actcv as cv
+import pyactcv as cv
 
 data = pd.read_csv('userData.csv', sep = ';', dtype = {'alarmactivecolumn' : float, 'alarmnumbercolumn' : float, 'timecolumn' : float})
 
@@ -43,9 +53,10 @@ starttime = 0
 indexinput = 0
 timebreak = 0.1
 
-cv.init_actcv()
-cv.schedule_Visicon(data, header, 'alarmactivecolumn', 'alarmnumbercolumn', 'timecolumn', 
-					frequency, duration, starttime, indexinput, timebreak)
+actcv = cv.ActCV(data, 'timecolumn' )
+actcv.load_states()
+actcv.schedule_visicon()
+actcv.schedule_tone()
 
 actr.run()
 
@@ -53,14 +64,14 @@ actr.run()
 
 ## Files
 
-- **actcv.py** - Contains the interface of ACT-CV and methods to load a user data set into the visicon of ACT-R.
+- **actcv.py** - Contains the class ActCV and methods to create the interface to load user data set into the visicon of ACT-R.
 
-- **actr.py** - Contains the dispatcher of ACT-R version 7.12., which is necessary to form a connection between python and ACT-R.
-
+- **actr.py** - Contains the dispatcher of ACT-R version 7.12., which is necessary to form a connection between python and ACT-R (see http://act-r.psy.cmu.edu/). 
 
 
 ## TODO
 Possible additional feature to add:
 
 - [ ] Add more dynamic read in for data
+- [ ] Add selection of what to load ("visual", "audio")
 - [ ] Add debugging support 
