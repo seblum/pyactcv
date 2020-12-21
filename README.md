@@ -20,7 +20,7 @@ For exemplary usage of the library please see [3] and [4].
 ![Exemplary Visicon](visicon.png)
 
 
-## Installation
+## Installation [in Progress]
 
 ```bash
 pip install git+https://github.com/seblum/actcv
