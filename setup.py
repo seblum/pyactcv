@@ -16,6 +16,7 @@ setup_requires = [
 
 tests_require = [
     'pytest',
+    'coverage==4.*',
     'pytest-cov',
 ]
 
