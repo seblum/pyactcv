@@ -1,7 +1,7 @@
 # ActCV - python interface
 
-[![Build Status](https://travis-ci.org/seblum/ActCV.svg?branch=master)](https://travis-ci.org/seblum/ActCV)
-[![Coverage Status](https://coveralls.io/repos/github/seblum/ActCV/badge.svg?branch=master)](https://coveralls.io/github/seblum/ActCV?branch=master)
+[![Build Status](https://travis-ci.org/seblum/pyactcv.svg?branch=master)](https://travis-ci.org/seblum/pyactcv)
+[![Coverage Status](https://coveralls.io/repos/github/seblum/pyactcv/badge.svg)](https://coveralls.io/github/seblum/pyactcv)
 
 This library connects the cognitive architecture ACT-R with the programming language python to load user data into ACT-R's visicon.
 
