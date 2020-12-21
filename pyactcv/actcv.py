@@ -10,13 +10,11 @@ import numpy as np
 import time
 
 
-
 class ActCV:
 
-    def __init__(self, data, head, indexinput = 0, timebreak = 0.01):
-        self.header =  []
+    def __init__(self, data, timecolumnname, indexinput = 0, timebreak = 0.01):
         self.starttime = 0
-        self.header = head
+        self.timecolumnname = timecolumnname
         self.index = indexinput
         self.timebreak = timebreak
         self.offsetdict, self.statedict, self.tonelist = {}, {}, []
@@ -56,7 +54,7 @@ class ActCV:
 
 
 
-    def set_states(self, timecolumnname):
+    def set_states(self):
         # this needs to be dynamically adjustable later on
         timecolumnname_index = 1
         alarmnumbercolumn = 1
@@ -66,7 +64,7 @@ class ActCV:
         offsetdict = {}
         statedict = {}
         tonelist = []
-        time_start = self.data[timecolumnname][0]
+        time_start = self.data[self.timecolumnname][0]
         time_last_current = time_start
 
         # set states
@@ -96,9 +94,9 @@ class ActCV:
 
 
 
-    def schedule_States(self, timecolumnname):
+    def load_States(self):
         t0 = time.time()
-        self.offsetdict, self.statedict, self.tonelist = self.set_states(timecolumnname)
+        self.offsetdict, self.statedict, self.tonelist = self.set_states()
         print(f"schedule states  took: { round(time.time()-t0, 5) } seconds")
 
 

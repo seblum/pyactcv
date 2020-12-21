@@ -1,6 +1,7 @@
 # ActCV - python interface
 
 [![Build Status](https://travis-ci.org/seblum/ActCV.svg?branch=master)](https://travis-ci.org/seblum/ActCV)
+[![Coverage Status](https://coveralls.io/repos/github/seblum/ActCV/badge.svg?branch=master)](https://coveralls.io/github/seblum/ActCV?branch=master)
 
 This is a library for connecting the ACT-R visicon with user data.
 
