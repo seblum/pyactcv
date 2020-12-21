@@ -11,13 +11,14 @@ install_requires = [
 ]
 
 setup_requires = [
-    'pytest-runner',
+    'pytest-runner'
 ]
 
 tests_require = [
     'pytest',
     'coverage==4.*',
     'pytest-cov',
+    'coveralls'
 ]
 
 with open("README.md", "r") as fh:
