@@ -8,9 +8,9 @@ python:
 install:
   - pip install -e .
   - pip install pytest
-  #- pip install pytest-cov codecov  # install packages for code coverage report
+  - pip install pytest-cov codecov coveralls  # install packages for code coverage report
 script:
   - python setup.py pytest
 after_success:
-  - pip install coveralls
+#  - pip install coveralls
   - coveralls # uploads report to codecov.io
