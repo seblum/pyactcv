@@ -32,7 +32,7 @@ setup(
     description="Combine the Cognitive Architecture ACT-R with user data",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/seblum/actcv",
+    url="https://github.com/seblum/pyactcv",
     packages=find_packages(),
     install_requires=install_requires,
     setup_requires=setup_requires,
