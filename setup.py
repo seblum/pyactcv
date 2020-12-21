@@ -24,7 +24,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name="actr-cv", # Replace with your own username
+    name="pyactcv",
     version="0.0.2",
     author="Sebastian Blum",
     author_email="sebast.blum@gmail.com",
