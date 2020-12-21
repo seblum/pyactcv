@@ -16,6 +16,7 @@ setup_requires = [
 
 tests_require = [
     'pytest',
+    'pytest-cov',
 ]
 
 with open("README.md", "r") as fh:
