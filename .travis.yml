@@ -10,7 +10,7 @@ install:
   - pip install pytest
   - pip install pytest-cov codecov coveralls  # install packages for code coverage report
 script:
-   - coverage run -m pytest -vv
-#  - coverage run --source=pyactcv setup.py pytest
+#   - coverage run -m pytest -vv
+  - coverage run setup.py pytest
 after_success:
   - coveralls # uploads report to codecov.io
