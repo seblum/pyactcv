@@ -17,6 +17,7 @@ class ActCV:
         self.timecolumnname = timecolumnname
         self.index = indexinput
         self.timebreak = timebreak
+        # dataframe.columns.get_loc("<col_name>")
         self.offsetdict, self.statedict, self.tonelist = {}, {}, []
         try:
 	        self.data = self.convert_data_frame(data)

@@ -21,6 +21,15 @@ tests_require = [
     'coveralls'
 ]
 
+extras_require = {
+    'dev': [
+        'pytest',
+        'coverage',
+        'pytest-cov',
+        'coveralls'
+    ],
+}
+
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
@@ -30,6 +39,7 @@ setup(
     author="Sebastian Blum",
     author_email="sebast.blum@gmail.com",
     description="Combine the Cognitive Architecture ACT-R with user data",
+    py_modules=['pyactcv'],
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/seblum/pyactcv",
@@ -37,10 +47,27 @@ setup(
     install_requires=install_requires,
     setup_requires=setup_requires,
     tests_require=tests_require,
+    extras_require=extras_require,
     classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
+        'Development Status :: 2 - Pre-Alpha',
+        'Intended Audience :: Developers',
+        'Intended Audience :: Education',
+        'Intended Audience :: End Users/Desktop',
+        'Intended Audience :: Information Technology',
+        'Intended Audience :: Other Audience',
+        'Intended Audience :: Science/Research',
+        'License :: OSI Approved :: MIT License',
+        'Natural Language :: English',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3', # due to f string
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3 :: Only',
+        'Topic :: Artistic Software',
+        'Topic :: Scientific/Engineering :: Human Machine Interfaces',
+        'Topic :: Scientific/Engineering :: Artificial Intelligence',
+        'Topic :: Scientific/Engineering :: Interface Engine/Protocol Translator',
+        'Topic :: Software Development :: Libraries :: Python Modules',
     ],
     python_requires='>=3.6',
 )
