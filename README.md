@@ -1,7 +1,11 @@
-# pyactcv - python interface
-
 [![Build Status](https://travis-ci.org/seblum/pyactcv.svg?branch=master)](https://travis-ci.org/seblum/pyactcv)
 [![Coverage Status](https://coveralls.io/repos/github/seblum/pyactcv/badge.svg)](https://coveralls.io/github/seblum/pyactcv)
+[![PyPI version fury.io](https://img.shields.io/pypi/v/pyactcv?color=green)](https://pypi.python.org/pypi/pyactcv/)
+[![PyPI license](https://img.shields.io/pypi/l/pyactcv)](https://pypi.python.org/pypi/pyactcv/)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/pyactcv)](https://pypi.python.org/pypi/pyactcv/)
+
+
+# pyactcv - python interface
 
 This library connects the cognitive architecture ACT-R with the programming language python to load user data into ACT-R's visicon.
 
