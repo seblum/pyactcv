@@ -35,7 +35,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="pyactcv",
-    version="0.0.2",
+    version="0.0.3",
     author="Sebastian Blum",
     author_email="sebast.blum@gmail.com",
     description="Combine the Cognitive Architecture ACT-R with user data",
