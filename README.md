@@ -3,13 +3,14 @@
 [![PyPI version fury.io](https://img.shields.io/pypi/v/pyactcv?color=green)](https://pypi.python.org/pypi/pyactcv/)
 [![PyPI license](https://img.shields.io/pypi/l/pyactcv)](https://pypi.python.org/pypi/pyactcv/)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/pyactcv)](https://pypi.python.org/pypi/pyactcv/)
+[![PyPI actrversion fury.io](https://img.shields.io/badge/ACT--R-v7.21.6-blue)](https://pypi.python.org/pypi/pyactcv/)
 
 
 # pyactcv - python interface
 
 This library connects the cognitive architecture ACT-R with the programming language python to load user data into ACT-R's visicon.
 
-The cognitive architecture ACT-R is able to monitor a human operator’s interactions with a system using the concept of model-tracing, a concept previously implemented within an ACT-R tutoring system [1]. This software library adapted the work of [2] to establish such a connection between the programming language python and ACT-R version 7.12. For exemplary usage of the library please see [3] and [4].
+The cognitive architecture ACT-R is able to monitor a human operator’s interactions with a system using the concept of model-tracing, a concept previously implemented within an ACT-R tutoring system [1]. This software library adapted the work of [2] to establish such a connection between the programming language python and ACT-R version 7.21.6. For exemplary usage of the library please see [3] and [4].
 
 ![Exemplary Visicon](https://raw.githubusercontent.com/seblum/pyactcv/master/visicon.png)
 
