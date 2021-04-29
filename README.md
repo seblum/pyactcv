@@ -3,7 +3,7 @@
 [![PyPI version fury.io](https://img.shields.io/pypi/v/pyactcv?color=green)](https://pypi.python.org/pypi/pyactcv/)
 [![PyPI license](https://img.shields.io/pypi/l/pyactcv)](https://pypi.python.org/pypi/pyactcv/)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/pyactcv)](https://pypi.python.org/pypi/pyactcv/)
-[![PyPI actrversion fury.io](https://img.shields.io/badge/ACT--R-v7.21.6-blue)](https://pypi.python.org/pypi/pyactcv/)
+[![PyPI actrversion fury.io](https://img.shields.io/badge/ACT--R-v7.21-blue)](https://pypi.python.org/pypi/pyactcv/)
 
 
 # pyactcv - python interface
