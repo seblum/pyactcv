@@ -20,7 +20,7 @@ import time
 
 class ActCV:
     def __init__(
-        self, data, timecolumnname, stringcolumn, indexinput=0, timebreak=0.01
+        self, data, timecolumnname, stringcolumn, indexinput: int=0, timebreak: float=0.01
     ):
         self.timecolumnname = timecolumnname
         self.stringcolumn = stringcolumn
@@ -53,7 +53,7 @@ class ActCV:
         df = dataframe.replace(np.nan, 0, regex=True)
         return df
 
-    def tuple_to_dict(self, namedtuple):
+    def tuple_to_dict(self, namedtuple: tuple) -> dict:
         tupleasdict = namedtuple._asdict()
         del tupleasdict["Index"]
         return tupleasdict
@@ -78,7 +78,7 @@ class ActCV:
             ]
         )
 
-    def commit_to_visicon(self, index):
+    def commit_to_visicon(self, index: int):
         state = self.tuple_to_dict(self.statedict[index])
         actr.delete_all_visicon_features()
         for head, value in state.items():
