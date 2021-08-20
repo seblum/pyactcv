@@ -166,15 +166,15 @@ class ActCV:
             )  # this impedes runtime
         print(f"schedule visicon took: { round(time.time()-t0, 5) } seconds")
 
-    def schedule_Tone(self, freq, duration):
+    def schedule_Tone(self, freq: float, duration: float):
         t0 = time.time()
         for key in self.tonelist:
             actr.new_tone_sound(freq, duration, key)  # this impedes runtime
         print(f"schedule tone took: { round(time.time()-t0, 5) } seconds")
 
-    def quit_simulation(self, input):
+    def quit_simulation(self, input: int):
         if input == 1:
             return True
 
-    def schedule_force_quit(self, time):
+    def schedule_force_quit(self, time: int):
         actr.schedule_event(time, "quit-simulation", [1], maintenance=True)
