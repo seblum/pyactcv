@@ -34,14 +34,18 @@ class ActCV:
             print(f"Not able to load {data}")
         actr.add_command(
             "commit-to-visicon",
-            self.commit_to_visicon,
+            self._commit_to_visicon,
             "load one row in the visicon",
         )
         actr.add_command(
             "quit-simulation",
-            self.quit_simulation,
+            self._quit_simulation,
             "returns that model is finished",
         )
+
+    def __str__(self):
+        cust_str = ""
+        return cust_str
 
     def convert_data_frame(self, dataframe):
         # check thath self.timecolumnname is in header
@@ -53,12 +57,12 @@ class ActCV:
         df = dataframe.replace(np.nan, 0, regex=True)
         return df
 
-    def tuple_to_dict(self, namedtuple):
+    def _tuple_to_dict(self, namedtuple):
         tupleasdict = namedtuple._asdict()
         del tupleasdict["Index"]
         return tupleasdict
 
-    def commit_string_to_visicon(self, head, value):
+    def _commit_string_to_visicon(self, head, value):
         actr.add_visicon_features(
             [
                 "isa",
@@ -78,15 +82,15 @@ class ActCV:
             ]
         )
 
-    def commit_to_visicon(self, index):
-        state = self.tuple_to_dict(self.statedict[index])
+    def _commit_to_visicon(self, index):
+        state = self._tuple_to_dict(self.statedict[index])
         actr.delete_all_visicon_features()
         for head, value in state.items():
             if isinstance(value, (int, float)):
                 value = np.float64(value)
             # needs to be extra to create a string out of a objectcolumn
             if head == self.stringcolumn:
-                self.commit_string_to_visicon(head, value)
+                self._commit_string_to_visicon(head, value)
             else:
                 actr.add_visicon_features(
                     [
@@ -172,7 +176,7 @@ class ActCV:
             actr.new_tone_sound(freq, duration, key)  # this impedes runtime
         print(f"schedule tone took: { round(time.time()-t0, 5) } seconds")
 
-    def quit_simulation(self, input):
+    def _quit_simulation(self, input):
         if input == 1:
             return True
 
